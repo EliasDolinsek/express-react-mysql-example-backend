@@ -11,7 +11,7 @@ export const getAllProducts = async (req, res) => {
 
 export const getProductById = async (req, res) => {
     try {
-        const product = await Product.findAll({where: {id: req.id}})
+        const product = await Product.findAll({where: {idproducts: req.params.id}})
         res.json(product[0])
     } catch (e) {
         res.json({message: e.message})
@@ -31,7 +31,7 @@ export const updateProduct = async (req, res) => {
     try {
         await Product.update(req.body, {
             where: {
-                id: req.params.id
+                idproducts: req.params.id
             }
         });
         res.json({
@@ -46,7 +46,7 @@ export const deleteProduct = async (req, res) => {
     try {
         await Product.destroy({
             where: {
-                id: req.params.id
+                idproducts: req.params.id
             }
         });
         res.json({

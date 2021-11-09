@@ -6,16 +6,18 @@ const {DataTypes} = Sequelize;
 const Product = db.define('products', {
     idproducts: {
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
     },
     title: {
         type: DataTypes.STRING
     },
     price: {
-        type: DataTypes.DOUBLE
+        type: DataTypes.DOUBLE,
     },
 }, {
-    freezeTableName: true
+    freezeTableName: true,
+    updatedAt: "update_date",
+    createdAt: "create_date"
 })
 
 export default Product
